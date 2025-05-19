@@ -12,13 +12,10 @@ const cli = {
   async execute(args) {
     let currentOptions,
         files,
-        extensions,
         configFile,
-        resolvePluginsRelativeTo,
         cache,
         cacheLocation,
         allowedRules,
-        rulesDir,
         includeWarnings,
         isInteractive,
         isMulti,
@@ -29,13 +26,10 @@ const cli = {
     try {
       currentOptions = options.parse(args);
       files = currentOptions._;
-      extensions = currentOptions.ext;
       configFile = currentOptions.config;
-      resolvePluginsRelativeTo = currentOptions.resolvePluginsRelativeTo;
       cache = currentOptions.cache;
       cacheLocation = currentOptions.cacheLocation;
       allowedRules = currentOptions.rule;
-      rulesDir = currentOptions.rulesdir;
       includeWarnings = currentOptions.warnings;
       isInteractive = currentOptions.interactive;
       isMulti = currentOptions.multi;
@@ -55,23 +49,14 @@ const cli = {
       console.log(options.generateHelp());
     } else {
       const configuration = { };
-      if (extensions) {
-        configuration.extensions = extensions;
-      }
       if (configFile) {
         configuration.overrideConfigFile = configFile;
-      }
-      if (resolvePluginsRelativeTo) {
-        configuration.resolvePluginsRelativeTo = resolvePluginsRelativeTo;
       }
       if (cache) {
         configuration.cache = cache;
       }
       if (cacheLocation) {
         configuration.cacheLocation = cacheLocation;
-      }
-      if (rulesDir) {
-        configuration.rulePaths = rulesDir;
       }
 
       nibbler.configure(configuration);

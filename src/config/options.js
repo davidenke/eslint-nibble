@@ -30,19 +30,10 @@ module.exports = optionator({
     type       : 'Boolean',
     description: 'Outputs the version number'
   }, {
-    option     : 'ext',
-    type       : '[String]',
-    default    : '',
-    description: 'Specify JavaScript file extensions'
-  }, {
     option     : 'config',
     alias      : 'c',
     type       : 'path::String',
     description: 'Use configuration from this file or shareable config'
-  }, {
-    option     : 'resolve-plugins-relative-to',
-    type       : 'path::String',
-    description: 'Changes the folder where plugins are resolved from'
   }, {
     option     : 'cache',
     type       : 'Boolean',
@@ -57,11 +48,6 @@ module.exports = optionator({
     type                : '[String]',
     concatRepeatedArrays: true,
     description         : 'Only show results for specified rule(s)'
-  }, {
-    option              : 'rulesdir',
-    type                : '[String]',
-    concatRepeatedArrays: true,
-    description         : 'Path to custom eslint rules'
   }, {
     option     : 'warnings',
     type       : 'Boolean',
